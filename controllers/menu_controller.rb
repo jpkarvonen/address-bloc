@@ -74,6 +74,7 @@ class MenuController
         if address_book.entries.empty? 
             system "clear"
             puts "Sorry, there are no entries to select." 
+            return # adding this was the fix
         end
         
         print "Please enter a number between 1 and #{address_book.entries.length}: "
