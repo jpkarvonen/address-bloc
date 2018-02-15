@@ -14,7 +14,8 @@ class MenuController
         puts "2 - Create an entry"
         puts "3 - Search for an entry"
         puts "4 - Import entries from CSV"
-        puts "5 - Exit"
+        puts "5 - Open Pandora's Box"
+        puts "6 - Exit"
         print "Enter your selection: "
         
         selection = gets.to_i
@@ -38,6 +39,9 @@ class MenuController
                 read_csv
                 main_menu
             when 5
+                delete_all_entries
+                main_menu
+            when 6
                 puts "Good-bye!"
                 
                 exit(0)
@@ -201,6 +205,19 @@ class MenuController
        
        puts "Updated entry:"
        puts entry
+        
+    end
+    
+    def delete_all_entries
+        
+        if !address_book.entries.empty? 
+            address_book.entries.clear
+            system "clear"
+            puts "Uh oh.... all entries were destroyed by a mysterious force."
+        else
+            system "clear"
+            puts  "Hmm.. nothing happened."
+        end
         
     end
     
